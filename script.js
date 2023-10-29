@@ -4,7 +4,7 @@ document.querySelectorAll('.key').forEach(function(button) {
         var currentInput = document.getElementById('hymnNumber').value;
         var buttonValue = this.textContent;
 
-        if (buttonValue === 'C') {
+        if (buttonValue === 'X') {
             // Clear the input field
             document.getElementById('hymnNumber').value = '';
         } else {
@@ -21,9 +21,23 @@ document.getElementById('searchButton').addEventListener('click', function() {
 
     // Call a function to fetch and display hymn verses
     fetchHymnVerses(hymnNumber);
+
+    // Toggle visibility
+    togglePageVisibility('hymn-display-page', 'number-input-page')
 });
 
-// Rest of your JavaScript code remains the same
+// Add event listener to the Back button
+document.getElementById('backButton').addEventListener('click', function() {
+    document.getElementById('hymnNumber').value = '';
+    // Toggle visibility to return to the number input page
+    togglePageVisibility('number-input-page', 'hymn-display-page');
+});
+
+// Function to toggle page visibility
+function togglePageVisibility(showPage, hidePage) {
+    document.querySelector('.' + showPage).style.display = 'block';
+    document.querySelector('.' + hidePage).style.display = 'none';
+}
 
 
 function fetchHymnVerses(hymnNumber) {
@@ -53,7 +67,7 @@ function displayHymnVerses(hymnNumber, hymnData) {
         hymnVerses.innerHTML = '<h2>' + hymn.hymn + '</h2>';
         
         hymn.verses.forEach(function(verse) {
-            hymnVerses.innerHTML += '<p><strong>Verse ' + verse.verse + ':</strong><br>' + verse.text + '</p>';
+            hymnVerses.innerHTML += '<p><strong>Verse ' + verse.verse + ':</strong><br><span style="white-space: pre;">' + verse.text + '</span></p>';
         });
     } else {
         alert('Hymn not found.');

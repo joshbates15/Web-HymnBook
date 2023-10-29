@@ -6,27 +6,44 @@
 </head>
 <body>
     <h1>Hymn Book</h1>
-    <div class="calculator">
-        <div class="input-box">
-            <input type="text" id="hymnNumber" readonly>
-        </div>
-        <div class="keypad">
-            <button class="key">1</button>
-            <button class="key">2</button>
-            <button class="key">3</button>
-            <button class="key">4</button>
-            <button class="key">5</button>
-            <button class="key">6</button>
-            <button class="key">7</button>
-            <button class="key">8</button>
-            <button class="key">9</button>
-            <button class="key">0</button>
-            <button class="key" id="clear">C</button>
-            <button id="searchButton">Go</button>
+    <div class="number-input-page">
+        <div class="calculator">
+            <div class="input-box">
+                <input type="text" id="hymnNumber" readonly>
+            </div>
+            <div class="keypad">
+                <button class="key">1</button>
+                <button class="key">2</button>
+                <button class="key">3</button>
+                <button class="key">4</button>
+                <button class="key">5</button>
+                <button class="key">6</button>
+                <button class="key">7</button>
+                <button class="key">8</button>
+                <button class="key">9</button>
+                <button class="key">0</button>
+                <button class="key" id="clear">X</button>
+                <button id="searchButton">Go</button>
+            </div>
         </div>
     </div>
-    <div id="hymnVerses"></div>
+    <div class="hymn-display-page" style="display: none;">
+        <button id="backButton">Back</button>
+        <div id="hymnVerses"></div>
+    </div>
     
     <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+            .then(function(registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(function(error) {
+                console.error('Service Worker registration failed:', error);
+            });
+        }
+    </script>
+    
 </body>
 </html>
