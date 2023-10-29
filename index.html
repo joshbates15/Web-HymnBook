@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<div class="full-height">
     <h1>Hymn Book</h1>
     <div class="number-input-page">
         <div class="calculator">
@@ -31,8 +32,9 @@
         <button id="backButton">Back</button>
         <div id="hymnVerses"></div>
     </div>
-    
+</div>
     <script src="script.js"></script>
+    
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')

@@ -67,7 +67,7 @@ function displayHymnVerses(hymnNumber, hymnData) {
         hymnVerses.innerHTML = '<h2>' + hymn.hymn + '</h2>';
         
         hymn.verses.forEach(function(verse) {
-            hymnVerses.innerHTML += '<p><strong>Verse ' + verse.verse + ':</strong><br><span style="white-space: pre;">' + verse.text + '</span></p>';
+            hymnVerses.innerHTML += '<p><strong>Verse ' + verse.verse + ':</strong><br><span class="hymn-text">' + verse.text + '</span></p>';
         });
     } else {
         alert('Hymn not found.');
