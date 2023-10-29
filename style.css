@@ -7,11 +7,17 @@ html, body {margin:0;padding:0;}
     text-align: center;
 }
 
+h1, h2 {text-align:center;font-family: sans-serif;}
+h2 {font-size: 7vh;margin: 3px;}
+
 .input-box {
     background: #f0f0f0;
     padding: 10px;
     display: flex;
+    height:15vh;
 }
+
+#hymnNumber {font-size: 10vh;}
 
 input[type="text"] {
     width: 100%;
@@ -31,8 +37,8 @@ input[type="text"] {
 
 .key {
     width: 100%;
-    height: 20vh;
-    font-size: 5rem;
+    height: 15vh;
+    font-size: 10vh;
     background: #333;
     color: #fff;
     border: none;
@@ -41,8 +47,8 @@ input[type="text"] {
 
 #clear {
     width: 100%;
-    height: 20vh;
-    font-size: 5rem;
+    height: 15vh;
+    font-size: 10vh;
     background: #ff5722;
     color: #fff;
     border: none;
@@ -51,12 +57,14 @@ input[type="text"] {
 
 #searchButton {
     width: 100%;
-    height: 20vh;
-    font-size: 5rem;
+    height: 15vh;
+    font-size: 10vh;
     background: #4caf50;
     color: #fff;
     border: none;
     cursor: pointer;
 }
 
-.hymn-text {white-space: pre;font-size:2rem;}
+.hymn-text {white-space: pre;font-size:2rem;font-family: sans-serif;}
+
+#backButton {height:5vh;width:15vh;font-size: 2vh;}
