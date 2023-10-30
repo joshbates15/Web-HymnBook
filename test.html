@@ -28,10 +28,33 @@
                 cursor:pointer;
                 font-size: 10vh;
                 font-family: sans-serif;
-                vertical-align:auto;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+            }
+            .input-box-div {
+                background-color: #333;
+                color:#fff; 
+                text-align: center;
+                border:none;
+                cursor:pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .input-box {
+                background-color: #fff;
+                color:#333; 
+                text-align: center;
+                border:none;
+                cursor:pointer;
+                font-size: 10vh;
+                font-family: sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding:10px;
+                width:98%
             }
             .clear-btn {
                 background: #ff5722;
@@ -75,7 +98,7 @@
     <body>
         <h1>Heading 1</h1>
         <div class="parent">
-            <div class="div1 key">SEARCH</div>
+            <div class="div1 input-box-div"><input type="text" class="input-box" id="hymnNumber" readonly></div>
             <div class="div2 key">1</div>
             <div class="div3 key">2</div>
             <div class="div4 key">3</div>
@@ -86,7 +109,7 @@
             <div class="div9 key">8</div>
             <div class="div10 key">9</div>
             <div class="div11 key">0</div>
-            <div class="div12 clear-btn">X</div>
+            <div class="div12 key clear-btn">X</div>
             <div id="searchButton" class="div13 search-btn">GO</div>
         </div>
         <div class="child" style="display:none;">
@@ -96,6 +119,20 @@
             document.getElementById('searchButton').addEventListener('click', function() {
                 document.querySelector('.child').style.display = 'block';
                 document.querySelector('.parent').style.display = 'none';
+            });
+            document.querySelectorAll('.key').forEach(function(button) {
+                //console.log(button.textContent);
+                button.addEventListener('click', function() {
+                    var currentInput = document.getElementById('hymnNumber').value;
+                    var buttonValue = this.textContent;
+                    if(buttonValue === 'X') {
+                        document.getElementById('hymnNumber').value = '';
+                        console.log("number cleared");
+                    } else {
+                        document.getElementById('hymnNumber').value = currentInput + buttonValue;
+                        console.log(document.getElementById('hymnNumber').value);
+                    }
+                });
             });
         </script>
     </body>
