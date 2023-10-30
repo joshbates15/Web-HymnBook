@@ -94,8 +94,9 @@
             .div11 { grid-area: 5 / 2 / 6 / 3; }
             .div12 { grid-area: 5 / 1 / 6 / 2; }
             .div13 { grid-area: 5 / 3 / 6 / 4; }
-            .hymn-text {white-space: pre;font-size:2rem;font-family: sans-serif;}
-            #backButton {height:5vh;width:15vh;font-size: 2vh;}
+            .hymn-text {white-space: pre;font-size:1.5rem;font-family: sans-serif;}
+            #backButton {height:5vh;width:15vh;font-size: 2vh;display:inline-block;font-family: sans-serif;text-decoration:underline;}
+            #hymn-number-wrap {height:5vh;width:15vh;font-size: 2vh;display:inline-block;font-family: sans-serif;}
         </style>
     </head>
     <body>
@@ -119,6 +120,7 @@
         </div>
         <div class="hymn-display-page" style="display:none;">
             <div id="backButton"><< Back</div>
+            <div id="hymn-number-wrap">&nbsp;</div>
             <div id="hymnVerses"></div>
         </div>
         <script>
