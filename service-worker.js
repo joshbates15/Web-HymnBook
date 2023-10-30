@@ -2,7 +2,7 @@
 
 self.addEventListener('install', function(event) {
     event.waitUntil(
-        caches.open('hymn-lookup-v3').then(function(cache) {
+        caches.open('hymn-lookup-v4').then(function(cache) {
             return cache.addAll([
                 '/', // Cache the root page
                 'style.css', // Cache your CSS file
