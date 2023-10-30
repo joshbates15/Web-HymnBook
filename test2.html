@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body {
+    height: 100%;
+    font-size: 1rem;
+}
+
+#container {
+    display: flex;
+    width: 100%;
+}
+
+#first {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    height: 90vh;
+    margin-left: 10px;
+}
+
+.grid_container {
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-template-rows: 50px 50px;
+    background-color: green;
+    padding: 10px;
+}
+
+.small_btn {
+    width: 100%;
+    height: 50px;
+}
+
+.big_btn {
+    width: 100%;
+    height: 50px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+}
+
+.grid-item:nth-child(5) {
+    grid-column: 2 / span 2;
+}
+
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div id = "container">
+    <div id = "first">
+      <div class = "grid-container">
+        <div class="grid-item">
+          <button type = "button" id = "b1" class = "small_btn">Button1</button>
+        </div>
+        <div class="grid-item">
+          <button type = "button" id = "b2" class = "small_btn">Button2</button>
+        </div>
+        <div class="grid-item">
+          <button type = "button" id = "b3" class = "small_btn">Button3</button>
+        </div>
+        <div class="grid-item">
+          <button type = "button" id = "b4" class = "small_btn">Button4</button>
+        </div>
+        <div class="grid-item">
+          <button type = "button" id = "b5" class = "big_btn">Button5</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
