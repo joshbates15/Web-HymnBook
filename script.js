@@ -31,6 +31,8 @@ document.getElementById('backButton').addEventListener('click', function() {
     document.getElementById('hymnNumber').value = '';
     // Toggle visibility to return to the number input page
     togglePageVisibility('number-input-page', 'hymn-display-page');
+    // Reset the hymn verses div.
+    document.getElementById('hymnVerses').innerHTML = '&nbsp;';
 });
 
 // Function to toggle page visibility
