@@ -64,7 +64,7 @@ function displayHymnVerses(hymnNumber, hymnData) {
     // Check if the hymn was found
     if (hymn) {
         var hymnVerseNum = document.getElementById('hymn-number-wrap');
-        hymnVerseNum.innerHTML = '<h2>Hymn: ' + hymn.hymn + '</h2>';
+        hymnVerseNum.innerHTML = '<h2>HYMN: ' + hymn.hymn + '</h2>';
         var hymnVerses = document.getElementById('hymnVerses');
         hymn.verses.forEach(function(verse) {
             hymnVerses.innerHTML += '<p><strong>Verse ' + verse.verse + ':</strong><br><span class="hymn-text">' + verse.text + '</span></p>';
