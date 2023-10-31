@@ -1,51 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hymn Book</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-<div class="full-height">
     <h1>Hymn Book</h1>
     <div class="number-input-page">
-        <div class="calculator">
-            <div class="input-box">
-                <input type="text" id="hymnNumber" readonly>
-            </div>
-            <div class="keypad">
-                <div class="key">1</div>
-                <div class="key">2</div>
-                <div class="key">3</div>
-                <div class="key">4</div>
-                <div class="key">5</div>
-                <div class="key">6</div>
-                <div class="key">7</div>
-                <div class="key">8</div>
-                <div class="key">9</div>
-                <div class="key">0</div>
-                <div class="key" id="clear">X</div>
-                <div id="searchButton">GO</div>
-            </div>
+        <div class="number-input">
+            <div class="div1 input-box-div"><input type="text" class="input-box" id="hymnNumber" readonly></div>
+            <div class="div2 key">1</div>
+            <div class="div3 key">2</div>
+            <div class="div4 key">3</div>
+            <div class="div5 key">4</div>
+            <div class="div6 key">5</div>
+            <div class="div7 key">6</div>
+            <div class="div8 key">7</div>
+            <div class="div9 key">8</div>
+            <div class="div10 key">9</div>
+            <div class="div11 key">0</div>
+            <div class="div12 key clear-btn">X</div>
+            <div id="searchButton" class="div13 search-btn">GO</div>
         </div>
     </div>
-    <div class="hymn-display-page" style="display: none;">
-        <button id="backButton">Back</button>
+    <div class="hymn-display-page" style="display:none;">
+        <button id="backButton"><< Back</button>
+        <div id="hymn-number-wrap">&nbsp;</div>
         <div id="hymnVerses"></div>
     </div>
-</div>
     <script src="script.js"></script>
-    <!--
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
-            .then(function(registration) {
-                console.log('Service Worker registered with scope:', registration.scope);
-            })
-            .catch(function(error) {
-                console.error('Service Worker registration failed:', error);
-            });
+                .then(function (registration) {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(function (error) {
+                    console.error('Service Worker registration failed:', error);
+                });
         }
     </script>
-    -->
 </body>
+
 </html>
