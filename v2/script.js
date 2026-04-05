@@ -7,7 +7,10 @@ document.querySelectorAll('.key').forEach(function(button) {
         if (buttonValue === 'X') {
             document.getElementById('hymnNumber').value = '';
         } else {
-            document.getElementById('hymnNumber').value = currentInput + buttonValue;
+            // Limit to 4 digits for safety
+            if(currentInput.length < 4) {
+                document.getElementById('hymnNumber').value = currentInput + buttonValue;
+            }
         }
     });
 });
@@ -15,15 +18,12 @@ document.querySelectorAll('.key').forEach(function(button) {
 document.getElementById('searchButton').addEventListener('click', function() {
     var hymnNumber = document.getElementById('hymnNumber').value;
     if (!hymnNumber) return;
-
     fetchHymnVerses(hymnNumber);
-    togglePageVisibility('hymn-display-page', 'number-input-page');
 });
 
 document.getElementById('backButton').addEventListener('click', function() {
     document.getElementById('hymnNumber').value = '';
     togglePageVisibility('number-input-page', 'hymn-display-page');
-    document.getElementById('hymnVerses').innerHTML = '';
 });
 
 function togglePageVisibility(showPage, hidePage) {
@@ -38,8 +38,6 @@ function fetchHymnVerses(hymnNumber) {
         if (xhr.status === 200) {
             var hymnData = JSON.parse(xhr.responseText);
             displayHymnVerses(hymnNumber, hymnData);
-        } else {
-            alert('Failed to load hymn data.');
         }
     };
     xhr.send();
@@ -47,26 +45,25 @@ function fetchHymnVerses(hymnNumber) {
 
 function displayHymnVerses(hymnNumber, hymnData) {
     var hymn = hymnData.find(item => item.hymn === hymnNumber);
-    var hymnVerses = document.getElementById('hymnVerses');
-    var hymnTitle = document.getElementById('hymn-number-wrap');
-
+    
     if (hymn) {
-        hymnTitle.innerHTML = 'Hymn ' + hymn.hymn;
-        hymnVerses.innerHTML = '';
+        togglePageVisibility('hymn-display-page', 'number-input-page');
+        document.getElementById('hymn-number-wrap').innerText = 'Hymn ' + hymn.hymn;
+        var container = document.getElementById('hymnVerses');
+        container.innerHTML = '';
         
         hymn.verses.forEach(function(verse) {
-            var formattedVerse = verse.text.replace(/\n/g, "<br>");
-            // Using DaisyUI Card component for verses
-            hymnVerses.innerHTML += `
-                <div class="card bg-base-100 shadow-sm border border-base-300">
-                    <div class="card-body p-6">
-                        <h3 class="card-title text-sm uppercase text-gray-400">Verse ${verse.verse}</h3>
-                        <p class="text-lg leading-relaxed">${formattedVerse}</p>
-                    </div>
+            var formattedText = verse.text.replace(/\n/g, "<br>");
+            container.innerHTML += `
+                <div class="verse-card">
+                    <div class="text-xs font-bold text-gray-400 mb-1 uppercase tracking-widest">Verse ${verse.verse}</div>
+                    <div class="hymn-text">${formattedText}</div>
                 </div>`;
         });
+        // Scroll to top of display page
+        document.querySelector('.hymn-display-page').scrollTop = 0;
     } else {
-        alert('Hymn not found.');
-        togglePageVisibility('number-input-page', 'hymn-display-page');
+        alert('Hymn #' + hymnNumber + ' not found.');
+        document.getElementById('hymnNumber').value = '';
     }
 }

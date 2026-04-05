@@ -1,18 +1,40 @@
-/* Minimal custom CSS */
-body {
-    -webkit-tap-highlight-color: transparent;
+/* Ensure the body doesn't bounce on mobile */
+html, body {
+    height: 100%;
+    margin: 0;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
 }
 
-/* Ensure the keypad buttons feel like a square on mobile */
+/* Let the display page scroll when content is long */
+.hymn-display-page {
+    position: relative;
+    height: 100%;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Keypad button styling */
 .key {
-    aspect-ratio: 1 / 1;
+    border-radius: 1rem;
+    transition: all 0.1s ease;
 }
 
-/* Smooth transition for page switching */
-.number-input-page, .hymn-display-page {
-    transition: opacity 0.2s ease-in-out;
+.key:active {
+    transform: scale(0.95);
+    filter: brightness(0.9);
 }
 
-.hidden {
-    display: none;
+/* Verse text formatting for maximum readability */
+.hymn-text {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    color: #374151; /* Neutral 700 */
+    font-weight: 400;
+}
+
+.verse-card {
+    border-left: 4px solid #570df8; /* Primary color */
+    padding-left: 1.5rem;
 }
