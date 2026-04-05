@@ -1,11 +1,14 @@
-/* OVERRIDE DAISYUI LIGHT THEME PRIMARY COLOR */
-[data-theme="light"] {
-    /* Forest Green: HSL(120, 61%, 34%) */
+/* FORCE FOREST GREEN INTO DAISYUI */
+:root, [data-theme="light"] {
+    /* Forest Green #228B22 in HSL format */
     --p: 120 61% 34%; 
-    /* This sets the text color on top of primary buttons to white */
-    --pc: 0 0% 100%; 
+    /* Text on primary buttons (White) */
+    --pc: 0 0% 100%;
+    /* Primary color focus state (slightly darker) */
+    --pf: 120 61% 25%;
 }
 
+/* Base Reset */
 html, body {
     height: 100%;
     margin: 0;
@@ -14,16 +17,11 @@ html, body {
     width: 100%;
 }
 
-.hymn-display-page {
-    position: relative;
-    height: 100%;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
-}
-
+/* Keypad Styles */
 .key {
     border-radius: 1rem;
     transition: all 0.1s ease;
+    border: none !important;
 }
 
 .key:active {
@@ -31,15 +29,34 @@ html, body {
     filter: brightness(0.9);
 }
 
+/* Ensure the GO button actually shows the color */
+#searchButton {
+    background-color: hsl(var(--p)) !important;
+    color: hsl(var(--pc)) !important;
+}
+
+/* Hymn Display Styles */
+.hymn-display-page {
+    position: relative;
+    height: 100%;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
 .hymn-text {
-    font-size: 1.25rem;
-    line-height: 1.8rem;
-    color: #1f2937; /* Gray 800 for readability */
+    font-size: 1.35rem;
+    line-height: 2rem;
+    color: #1f2937;
     font-weight: 400;
 }
 
 .verse-card {
-    border-left: 4px solid hsl(var(--p)); 
+    border-left: 5px solid hsl(var(--p)); 
     padding-left: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Clean up the back button color */
+#backButton {
+    color: hsl(var(--p));
 }

@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Hymn Book</title>
+    
+    <!-- DaisyUI + Tailwind CDN -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body class="bg-base-100 font-['Inter'] antialiased overflow-hidden">
 
     <div class="flex flex-col h-screen w-full p-2 box-border">
@@ -19,32 +24,38 @@
 
         <!-- INPUT PAGE -->
         <div class="number-input-page flex flex-col flex-1 w-full gap-2">
+            <!-- Display Area -->
             <div class="flex-none h-1/5 min-h-[100px]">
                 <input type="text" id="hymnNumber" readonly
                     class="w-full h-full text-6xl font-black text-center bg-base-200 border-none rounded-2xl text-primary focus:outline-none" 
                     placeholder="0">
             </div>
 
+            <!-- Keypad -->
             <div class="grid grid-cols-3 grid-rows-4 gap-2 flex-1">
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">1</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">2</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">3</button>
+                
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">4</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">5</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">6</button>
+                
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">7</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">8</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">9</button>
+                
                 <button class="key btn btn-error text-white text-3xl h-full font-bold">X</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">0</button>
-                <button id="searchButton" class="btn btn-primary text-white text-3xl h-full font-black">GO</button>
+                <!-- btn-primary will now be Forest Green because of the CSS override -->
+                <button id="searchButton" class="btn btn-primary text-white text-3xl h-full font-black uppercase">GO</button>
             </div>
         </div>
 
         <!-- DISPLAY PAGE -->
         <div class="hymn-display-page hidden flex-1 overflow-y-auto px-2">
             <div class="sticky top-0 bg-base-100 py-4 z-10 flex items-center gap-4 border-b">
-                <button id="backButton" class="btn btn-circle btn-ghost">
+                <button id="backButton" class="btn btn-circle btn-ghost text-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="15 19l-7-7 7-7" /></svg>
                 </button>
                 <h2 id="hymn-number-wrap" class="text-3xl font-black text-primary"></h2>
