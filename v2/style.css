@@ -1,4 +1,11 @@
-/* Ensure the body doesn't bounce on mobile */
+/* OVERRIDE DAISYUI LIGHT THEME PRIMARY COLOR */
+[data-theme="light"] {
+    /* Forest Green: HSL(120, 61%, 34%) */
+    --p: 120 61% 34%; 
+    /* This sets the text color on top of primary buttons to white */
+    --pc: 0 0% 100%; 
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -17,7 +24,6 @@ html, body {
 .key {
     border-radius: 1rem;
     transition: all 0.1s ease;
-    border: none !important;
 }
 
 .key:active {
@@ -26,14 +32,13 @@ html, body {
 }
 
 .hymn-text {
-    font-size: 1.3rem;
-    line-height: 1.9rem;
-    color: #1f2937; /* Gray 800 */
+    font-size: 1.25rem;
+    line-height: 1.8rem;
+    color: #1f2937; /* Gray 800 for readability */
     font-weight: 400;
 }
 
 .verse-card {
-    /* Pulls the Forest Green directly from our primary theme color */
     border-left: 4px solid hsl(var(--p)); 
     padding-left: 1.5rem;
     margin-bottom: 2rem;

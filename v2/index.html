@@ -1,42 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="hymnbook"> <!-- Updated theme name -->
-
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Hymn Book</title>
-    
-    <!-- Tailwind and DaisyUI CDN -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- TAILWIND CONFIGURATION: This is where we set Forest Green -->
-    <script>
-        tailwind.config = {
-            daisyui: {
-                themes: [
-                    {
-                        hymnbook: {
-                            "primary": "#228B22",          /* Forest Green */
-                            "primary-content": "#ffffff",   /* White text on green buttons */
-                            "secondary": "#1f2937",
-                            "accent": "#37cdbe",
-                            "neutral": "#3d4451",
-                            "base-100": "#ffffff",         /* Background color */
-                            "base-200": "#f2f2f2",         /* Keypad button color */
-                            "error": "#ff5722",            /* Clear button color */
-                        },
-                    },
-                ],
-            },
-        }
-    </script>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
-<body class="bg-base-100 font-['Inter'] antialiased overflow-hidden text-base-content">
+<body class="bg-base-100 font-['Inter'] antialiased overflow-hidden">
 
     <div class="flex flex-col h-screen w-full p-2 box-border">
         
@@ -56,26 +29,22 @@
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">1</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">2</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">3</button>
-                
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">4</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">5</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">6</button>
-                
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">7</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">8</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">9</button>
-                
                 <button class="key btn btn-error text-white text-3xl h-full font-bold">X</button>
                 <button class="key btn btn-ghost bg-base-200 text-3xl h-full font-bold">0</button>
-                <!-- GO button now uses 'btn-primary' which is defined as Forest Green above -->
-                <button id="searchButton" class="btn btn-primary text-white text-3xl h-full font-black uppercase">GO</button>
+                <button id="searchButton" class="btn btn-primary text-white text-3xl h-full font-black">GO</button>
             </div>
         </div>
 
         <!-- DISPLAY PAGE -->
         <div class="hymn-display-page hidden flex-1 overflow-y-auto px-2">
             <div class="sticky top-0 bg-base-100 py-4 z-10 flex items-center gap-4 border-b">
-                <button id="backButton" class="btn btn-circle btn-ghost text-primary">
+                <button id="backButton" class="btn btn-circle btn-ghost">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="15 19l-7-7 7-7" /></svg>
                 </button>
                 <h2 id="hymn-number-wrap" class="text-3xl font-black text-primary"></h2>
