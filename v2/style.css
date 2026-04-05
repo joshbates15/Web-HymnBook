@@ -1,11 +1,8 @@
 /* FORCE FOREST GREEN INTO DAISYUI */
 :root, [data-theme="light"] {
-    /* Forest Green #228B22 in HSL format */
-    --p: 120 61% 34%; 
-    /* Text on primary buttons (White) */
-    --pc: 0 0% 100%;
-    /* Primary color focus state (slightly darker) */
-    --pf: 120 61% 25%;
+    --p: 120 61% 34%;      /* Forest Green */
+    --pc: 0 0% 100%;       /* White text on primary */
+    --pf: 120 61% 25%;     /* Darker green for hover/focus */
 }
 
 /* Base Reset */
@@ -17,22 +14,35 @@ html, body {
     width: 100%;
 }
 
+/* Header Text */
+h1 {
+    /* Ensures the header text is exactly Forest Green */
+    color: hsl(var(--p)) !important;
+}
+
+/* Back Button & GO Button Styles */
+#backButton, #searchButton {
+    background-color: hsl(var(--p)) !important;
+    border-color: hsl(var(--p)) !important;
+    color: hsl(var(--pc)) !important; /* White text */
+}
+
+#backButton:active, #searchButton:active {
+    background-color: hsl(var(--pf)) !important;
+    transform: scale(0.95);
+}
+
 /* Keypad Styles */
 .key {
     border-radius: 1rem;
     transition: all 0.1s ease;
     border: none !important;
+    background-color: #f3f4f6; /* Light gray base-200 equivalent */
 }
 
 .key:active {
     transform: scale(0.95);
     filter: brightness(0.9);
-}
-
-/* Ensure the GO button actually shows the color */
-#searchButton {
-    background-color: hsl(var(--p)) !important;
-    color: hsl(var(--pc)) !important;
 }
 
 /* Hymn Display Styles */
@@ -44,19 +54,14 @@ html, body {
 }
 
 .hymn-text {
-    font-size: 1.35rem;
-    line-height: 2rem;
+    font-size: 1.4rem; /* Slightly larger for even better readability */
+    line-height: 2.1rem;
     color: #1f2937;
     font-weight: 400;
 }
 
 .verse-card {
-    border-left: 5px solid hsl(var(--p)); 
+    border-left: 6px solid hsl(var(--p)); 
     padding-left: 1.5rem;
-    margin-bottom: 2.5rem;
-}
-
-/* Clean up the back button color */
-#backButton {
-    color: hsl(var(--p));
+    margin-bottom: 3rem;
 }
