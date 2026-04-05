@@ -27,18 +27,18 @@ document.getElementById('backButton').addEventListener('click', function() {
 });
 
 function togglePageVisibility(showPage, hidePage) {
-    const header = document.getElementById('header');
+    //const header = document.getElementById('header');
     const title = document.getElementById('mainTitle');
     if (showPage === 'hymn-display-page') {
         // Shrink the title when viewing a hymn
         title.classList.remove('text-4xl', 'py-2');
         title.classList.add('text-xl', 'py-1');
-        header.classList.replace('py-2', 'py-1');
+        //header.classList.replace('py-2', 'py-1');
     } else {
         // Grow the title back when on the keypad
         title.classList.remove('text-xl', 'py-1');
         title.classList.add('text-4xl', 'py-2');
-        header.classList.remove('py-1', 'py-2');
+        //header.classList.remove('py-1', 'py-2');
     }
     document.querySelector('.' + showPage).classList.remove('hidden');
     document.querySelector('.' + hidePage).classList.add('hidden');
