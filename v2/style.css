@@ -34,6 +34,11 @@ h1 {
     transform: scale(0.95);
 }
 
+#backButton svg {
+    stroke: white !important;
+    display: block;
+}
+
 .btn-error {
     background-color: hsl(var(--er)) !important;
     color: hsl(var(--erc)) !important;
