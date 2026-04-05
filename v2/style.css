@@ -19,6 +19,8 @@ html, body {
 .key {
     border-radius: 1rem;
     transition: all 0.1s ease;
+    /* Emerald theme looks great with a slight shadow on buttons */
+    box-shadow: 0 2px 0 0 rgba(0,0,0,0.05);
 }
 
 .key:active {
@@ -26,15 +28,26 @@ html, body {
     filter: brightness(0.9);
 }
 
-/* Verse text formatting for maximum readability */
+/* Verse text formatting */
 .hymn-text {
     font-size: 1.25rem;
-    line-height: 1.75rem;
-    color: #374151; /* Neutral 700 */
+    line-height: 1.8rem;
+    color: hsl(var(--bc)); /* Uses DaisyUI "Base Content" color for text */
     font-weight: 400;
 }
 
 .verse-card {
-    border-left: 4px solid #570df8; /* Primary color */
+    /* This variable "var(--p)" pulls the exact green from the Emerald theme */
+    border-left: 4px solid hsl(var(--p)); 
     padding-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Customizing the scrollbar for the Emerald look */
+.hymn-display-page::-webkit-scrollbar {
+    width: 6px;
+}
+.hymn-display-page::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--p) / 0.2);
+    border-radius: 10px;
 }
