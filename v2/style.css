@@ -22,6 +22,10 @@ h1 {
     color: hsl(var(--p)) !important;
 }
 
+#mainTitle {
+    transition: all 0.3s ease-in-out;
+}
+
 /* Back Button & GO Button Styles */
 #backButton, #searchButton {
     background-color: hsl(var(--p)) !important;
