@@ -1,0 +1,18 @@
+/* Minimal custom CSS */
+body {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure the keypad buttons feel like a square on mobile */
+.key {
+    aspect-ratio: 1 / 1;
+}
+
+/* Smooth transition for page switching */
+.number-input-page, .hymn-display-page {
+    transition: opacity 0.2s ease-in-out;
+}
+
+.hidden {
+    display: none;
+}

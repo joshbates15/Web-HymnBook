@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"> <!-- You can change theme to 'dark', 'cupcake', etc. -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hymn Book</title>
+    <!-- Tailwind and DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body class="min-h-screen bg-base-200">
+
+    <div class="max-w-md mx-auto p-4">
+        <header class="text-center py-6">
+            <h1 class="text-4xl font-bold text-primary">Hymn Book</h1>
+        </header>
+
+        <!-- INPUT PAGE -->
+        <div class="number-input-page space-y-4">
+            <div class="form-control">
+                <input type="text" id="hymnNumber" readonly
+                    class="input input-bordered input-primary w-full text-center text-4xl h-20 font-mono" 
+                    placeholder="---">
+            </div>
+
+            <!-- Keypad Grid -->
+            <div class="grid grid-cols-3 gap-3">
+                <button class="key btn btn-lg btn-square btn-outline">1</button>
+                <button class="key btn btn-lg btn-square btn-outline">2</button>
+                <button class="key btn btn-lg btn-square btn-outline">3</button>
+                <button class="key btn btn-lg btn-square btn-outline">4</button>
+                <button class="key btn btn-lg btn-square btn-outline">5</button>
+                <button class="key btn btn-lg btn-square btn-outline">6</button>
+                <button class="key btn btn-lg btn-square btn-outline">7</button>
+                <button class="key btn btn-lg btn-square btn-outline">8</button>
+                <button class="key btn btn-lg btn-square btn-outline">9</button>
+                
+                <button class="key btn btn-lg btn-square btn-error">X</button>
+                <button class="key btn btn-lg btn-square btn-outline">0</button>
+                <button id="searchButton" class="btn btn-lg btn-success text-white">GO</button>
+            </div>
+        </div>
+
+        <!-- DISPLAY PAGE -->
+        <div class="hymn-display-page hidden pb-10">
+            <div class="flex items-center justify-between mb-6">
+                <button id="backButton" class="btn btn-ghost">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="15 19l-7-7 7-7" /></svg>
+                    Back
+                </button>
+                <div id="hymn-number-wrap" class="text-xl font-bold text-secondary"></div>
+            </div>
+
+            <div id="hymnVerses" class="space-y-6">
+                <!-- Verses will be injected here as DaisyUI cards -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(reg => console.log('SW Registered'))
+                .catch(err => console.log('SW Failed', err));
+        }
+    </script>
+</body>
+</html>
