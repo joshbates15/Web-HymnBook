@@ -3,6 +3,8 @@
     --p: 120 61% 34%;      /* Forest Green */
     --pc: 0 0% 100%;       /* White text on primary */
     --pf: 120 61% 25%;     /* Darker green for hover/focus */
+    --er: 0 78% 65%;       /* Bright Red */
+    --erc: 0 0% 100%;      /* White text on Error */
 }
 
 /* Base Reset */
@@ -30,6 +32,12 @@ h1 {
 #backButton:active, #searchButton:active {
     background-color: hsl(var(--pf)) !important;
     transform: scale(0.95);
+}
+
+.btn-error {
+    background-color: hsl(var(--er)) !important;
+    color: hsl(var(--erc)) !important;
+    opacity: 1 !important; /* Ensures it's not faded */
 }
 
 /* Keypad Styles */
