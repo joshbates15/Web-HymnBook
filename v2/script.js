@@ -27,7 +27,7 @@ document.getElementById('backButton').addEventListener('click', function() {
 });
 
 function togglePageVisibility(showPage, hidePage) {
-    const header = document.getElementsById('header');
+    const header = document.getElementById('header');
     const title = document.getElementById('mainTitle');
     if (showPage === 'hymn-display-page') {
         // Shrink the title when viewing a hymn
