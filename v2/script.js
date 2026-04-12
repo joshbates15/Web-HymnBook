@@ -80,3 +80,31 @@ function displayHymnVerses(hymnNumber, hymnData) {
         document.getElementById('hymnNumber').value = '';
     }
 }
+
+// SETTINGS / FONT SIZE PERSISTENCE LOGIC
+function initSettings() {
+    const savedFontSize = localStorage.getItem('hymnFontSize');
+    if (savedFontSize) {
+        applyFontSize(savedFontSize);
+        document.getElementById('fontSizeSlider').value = savedFontSize;
+    }
+}
+
+function applyFontSize(size) {
+    document.documentElement.style.setProperty('--hymn-font-size', size + 'rem');
+    // Calculate relative line height to ensure text spacing stays proportional
+    document.documentElement.style.setProperty('--hymn-line-height', (size * 1.5) + 'rem');
+}
+
+document.getElementById('settingsButton').addEventListener('click', function() {
+    document.getElementById('settingsModal').showModal();
+});
+
+document.getElementById('fontSizeSlider').addEventListener('input', function(e) {
+    const newSize = e.target.value;
+    applyFontSize(newSize);
+    localStorage.setItem('hymnFontSize', newSize);
+});
+
+// Initialize settings on page load
+initSettings();
