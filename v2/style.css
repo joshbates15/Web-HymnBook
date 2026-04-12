@@ -26,11 +26,6 @@ h1 {
     color: hsl(var(--p)) !important;
 }
 
-#mainTitle {
-    font-family: 'Pirata One', serif;
-    transition: all 0.2s ease-in-out;
-}
-
 /* Back Button & GO Button Styles */
 #backButton, #searchButton {
     background-color: hsl(var(--p)) !important;
@@ -52,6 +47,33 @@ h1 {
     background-color: hsl(var(--er)) !important;
     color: hsl(var(--erc)) !important;
     opacity: 1 !important; /* Ensures it's not faded */
+}
+
+/* Fix for DaisyUI Range Slider Progress Background */
+.range-primary {
+    accent-color: hsl(120, 61%, 34%) !important;
+    --range-shdw: hsl(120, 61%, 34%) !important;
+}
+
+/* WebKit (Chrome, Safari, Edge, iOS) */
+.range-primary::-webkit-slider-thumb {
+    /* 1. THIS CONTROLS THE CIRCLE'S COLOR */
+    background-color: hsl(0, 0%, 28%) !important; 
+    
+    /* 2. THIS CONTROLS THE PROGRESS BAR (left side) */
+    box-shadow: 0 0 0 3px #fff inset, calc(-100rem - 0.5rem) 0 0 100rem hsl(120, 61%, 34%) !important;
+}
+
+/* Firefox */
+.range-primary::-moz-range-thumb {
+    /* 1. THIS CONTROLS THE CIRCLE'S COLOR FOR FIREFOX */
+    background-color: hsl(0, 0%, 28%) !important;
+    border: none !important; /* Removes the default gray border */
+}
+
+/* Firefox native progress bar */
+.range-primary::-moz-range-progress {
+    background-color: hsl(120, 61%, 34%) !important;
 }
 
 /* Keypad Styles */
